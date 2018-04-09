@@ -1,0 +1,134 @@
+/*==========================*/
+/* general parameters
+/*==========================*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* The width and height properties (and min/max properties) includes content,
+    padding and border, but not the margins */
+/* The box-sizing property is used to tell the browser what the sizing properties (width and height) should include. */
+}
+
+body {
+      padding: 0;
+      margin: 0;
+      font-family: "Overpass", sans-serif; /* uses overpass font and if that's unavailable then sans-serif*/
+      font-size: 18px;
+      font-weight: 400; /* 400 on sama mis normal (muidu on bold ja light ja valikud)*/
+      line-height: 1.8;
+      color: #212529; /*set the text color of the element (body)*/
+}
+
+
+a {
+    color: #030535;
+    text-decoration: none; /*  lisa variandid: line-through, overline, underline */
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.wrapper {
+    /* opacity: 0.85; */
+    max-width: 1100px;
+    /* min-width: 752px; */
+    margin: auto; /* centers the wrapper container in the browser */
+    /* margin auto work only if block level element has defined width (or height),
+    because otherwise the the element will ifll full width of that container */
+  }
+.hide { /* tulevikus kasuta peitmiseks */
+	  display: none;
+}
+
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0); /* cuts out a rectangle of the element (e.g an image), used in case image happens to be larger than the element */
+    white-space: nowrap;
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    border: 0;
+}
+
+}
+ul {
+      list-style-type: none;
+}
+
+/* FRAMEWORK / GRID  */
+.container {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 15px;
+      padding-right: 15px;
+}
+/*
+@media (min-width: 768px) {
+    .container {
+        width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1140px;
+    }
+} */
+
+.row {
+      display: flex;
+      flex-grow: 1;
+      flex-wrap: wrap;
+      padding-left: -15px;
+      padding-right: -15px;
+}
+.col-2 {
+    max-width: 16.666%;
+    flex: 1 0  16.666%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.col-4 {
+    max-width: 33.333333%;
+    flex: 1 0 33.333333%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.col-6 {
+    max-width: 50%;
+    flex: 1 0 50%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.col-8 {
+    max-width: 66.666667%;
+    flex: 1 0 66.666667%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.col-10 {
+    max-width: 83.3333%;
+    flex: 1 0 83.3333%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.col-12 {
+    max-width: 100%;
+    flex: 1 0 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}

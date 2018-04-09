@@ -1,0 +1,3 @@
+10.apr -
+
+Sain vormi toimima, nüüd saab canvase väliselt sisendeid anda

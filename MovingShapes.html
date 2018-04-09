@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>canvas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="gfx/main.css" />
+    <style>
+#canvas {
+    border: 1px #444 solid;
+}
+#menu {
+    border: 1px #444 solid;
+}
+body {
+  min-width: 850px;
+}
+    </style>
+</head>
+<body>
+  <form id="frm1" action="" method="post">
+    <select>
+       <option value="1">Volvo</option>
+       <option value="2">Saab</option>
+       <option value="3">Mercedes</option>
+       <option value="4">Audi</option>
+    </select>
+    <input type="text" name="tekst_1" value="">
+  </form>
+  <button onclick="myFunction()">Saada</button>
+
+  <div id="demo">
+
+  </div>
+    <canvas id="canvas" height="600" width="600"></canvas>
+    <canvas id="menu" height="600" width="200"></canvas>
+    <script src="js/script.js"></script>
+</body>
+</html>
