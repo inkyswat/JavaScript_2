@@ -1,3 +1,40 @@
+11.apr -
+
+suur töö tehtud.
+
+kaks eraldi canvast, üks menüü jaoks, teine graafika jaoks
+
+sain toimima vormi kaudu refreshimise sisse/välja lülitamise.
+
+tegin nuppu ClearCanvas
+1) probleem: kui ClearCanvas nuppu vormist kasutada samal ajal kui käib refreshimine ei toimu midagi, kuna koheselt joonistub edasi mis eelnevalt pooleli jäi.
+kui ClearCanvasega canvas puhastada, siis objektid jäävad salles, ehk siis kui tahan, et ei joonistuks eelnvalt loodud objekte tuleb array tühjendada
+
+jube nikerdamine oli canvase refreshi loop’is saada õiged if testid edukaks 
+
+toimis selline asi:
+
+    if (run == 1 || run < 1.1 && run > 0.1) {
+        running = 1;
+    }
+    if (run == -1) {
+        running = 0;
+    }
+    if (running == 1) {
+        ClearCanvas();
+        for (let i = 0; i < wheels.length; i++) {
+            wheels[i].draw(wheels[i].posX, wheels[i].posY, wheels[i].radius);
+            wheels[i].manipul();
+        }
+        
+        requestAnimationFrame(RefreshCanvas); // refreshimine jääb seisma kui mujale tab'i peale minna
+    }
+
+sest run kammis iga korraga ära ja == kontroll ei toiminud millegi pärast peale I iteratsiooni
+
+lahendada tuleb ära ka veel värvide parem arvutus!
+————————————————————————
 10.apr -
 
 Sain vormi toimima, nüüd saab canvase väliselt sisendeid anda
+————————————————————————

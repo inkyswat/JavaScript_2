@@ -9,32 +9,84 @@
     <style>
 #canvas {
     border: 1px #444 solid;
+    margin-top: 10px;
 }
 #menu {
     border: 1px #444 solid;
+    margin-top: 10px;
+    margin-left: 5px;
 }
 body {
   min-width: 850px;
 }
+.heading {
+  display: flex;
+  min-height: 60px;
+  background-color: #a3aaff;
+  align-items: center;
+}
+.btn {
+  height: 100%;
+  font-size: 1.1em;
+  background-color: #948141;
+  margin-left: 3px;
+
+}
+.btn:hover {
+  background-color: #bda553;
+}
+.options > option {
+  font-size: 4.1em;
+}
+.input_text {
+  font-size: 1.1em;
+  color: #102d3d;
+  max-width: 40px;
+}
+.frm1, .frm1 > * {
+  display: flex;
+  align-items: center;
+}
+.status {
+  display: flex;
+}
+.status > p {
+  color: #7d230f;
+  font-size: 1.1em;
+}
+#demo {
+  color: #b2fe35;
+  font-size: 1.1em;
+}
     </style>
+<!-- STYLES END -->
 </head>
 <body>
-  <form id="frm1" action="" method="post">
-    <select>
-       <option value="1">Volvo</option>
-       <option value="2">Saab</option>
-       <option value="3">Mercedes</option>
-       <option value="4">Audi</option>
-    </select>
-    <input type="text" name="tekst_1" value="">
-  </form>
-  <button onclick="myFunction()">Saada</button>
+  <div class="heading">
 
-  <div id="demo">
+      <form id="frm1" action="" method="post">
+        <select class="options">
+           <option value="1">1</option>
+           <option value="2">2</option>
+           <option value="3">3</option>
+           <option value="4">stop!</option>
+        </select>
+        <input class="input_text" type="text" name="tekst_1" value="">
+      </form>
+      <button class="btn" onclick="SendForm()">Saada</button>
+      <button class="btn" onclick="ClearCanvas()">ClearCanvas</button>
+      <div class="status">
+        <p>status:</p>
+        <div id="demo">
+
+        </div>
+
+      </div>
 
   </div>
-    <canvas id="canvas" height="600" width="600"></canvas>
-    <canvas id="menu" height="600" width="200"></canvas>
-    <script src="js/script.js"></script>
+
+  <canvas id="menu" height="600" width="200"></canvas>
+  <canvas id="canvas" height="600" width="600"></canvas>
+  <script src="js/script.js"></script>
 </body>
 </html>
