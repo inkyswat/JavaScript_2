@@ -82,7 +82,7 @@ class wheel {
             ctx.stroke();
 
         }
-        if (this.direction < 1) {
+        if (this.direction < 360) {
             ctx.fillStyle = "#" + BallCol;//"#0a0178";
             // ctx.fillStyle = "#" + (parseInt(this.direction) * 5).toString();//"#0a0178";
             ctx.fill();
@@ -94,7 +94,7 @@ class wheel {
 
 
 function ClearCanvas() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 
@@ -145,7 +145,7 @@ function SendForm() {
         
     }
     console.log(FrmData[0]);
-    document.getElementById("demo").innerHTML = FrmData[0];
+    document.getElementById("status_inf").innerHTML = FrmData[0];
     switch (parseInt(FrmData[0])) {
         case 1:
         example_1();
@@ -180,19 +180,27 @@ DrawMenu();
 // examples
 
 function example_1() {
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 15; i++) {
         let r = parseInt(10 + Math.random() * 1);
         let x = parseInt(r + Math.random() * (canvas.width - 2 * r)); // et pall tekiks canvase alass on vaja ruudu laius maha lahutada
         let y = parseInt(r + Math.random() * (canvas.height - 2 * r));
-        let MoveSpeed = 0.4; // + parseInt(Math.random() * 0);
+        let MoveSpeed = 0.1; // + parseInt(Math.random() * 0);
         let direction = 360 * Math.random();
-        let Accel = 0.0; //Math.random() * 0.0 - 0.00;
-        let radiusChange = 0;//Math.random() * 2.3 - 2.9;
+        let Accel = 0.01; //Math.random() * 0.0 - 0.00;
+        let radiusChange = 0.1;//Math.random() * 2.3 - 2.9;
+        if (wheels.length > 75) {
+            wheels.splice(0, 75);
+            // wheel(300, 300, MoveSpeed, r, radiusChange, direction, 0);
+//     constructor(posX, posY, MoveSpeed, radius, radiusChange, direction, Accel) {
+
+        }
         wheels.push(new wheel(300, 300, MoveSpeed, r, radiusChange, direction, Accel));
     }
+    document.getElementById("wheels_array").innerHTML = ": " + wheels.length;
+
 }
 
 function stopRefresh() {
 
-    document.getElementById("demo").innerHTML = "seisab!";
+    document.getElementById("status_inf").innerHTML = "seisab!";
 }

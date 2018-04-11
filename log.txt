@@ -1,4 +1,10 @@
-11.apr -
+11.apr - hommikul 
+
+wheel classi sees uue objekti loomisel lähevad parameetrid lakke, vaja reset’ida neid kuidagi.
+
+spice’isin array’d kui wheels.length ületas x summa
+————————————————————————
+11.apr - öösel
 
 suur töö tehtud.
 
