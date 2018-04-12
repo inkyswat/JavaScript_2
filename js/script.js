@@ -9,13 +9,13 @@ var running = 0;
 
 
 var menu = {
-    border: 5,
+    border: 9,
     bg_color: "#a0e2de",
     text_color: "#010101",
-	FontHeight: 29,
-    fontSize: "29px serif",
+	FontHeight: 19,
+    fontSize: "19px serif",
 	header__text: "debug data:",
-	rowHeight: 15,
+	rowHeight: 50,
 	row1: "text 1:",
 	row2: "text 2:",
 	row3: "text 3:",
@@ -102,6 +102,7 @@ class wheel {
 
 function ClearCanvas() {
 	    ctx.clearRect(0, 0, canvas.width, canvas.height);
+		
 }
 
 
@@ -111,9 +112,9 @@ function DrawMenu() {
     ctx2.fillStyle = menu.text_color;
     ctx2.font = menu.fontSize;
     ctx2.fillText(menu.header__text, menu.border + 4, menu.border + menu.FontHeight);
-    ctx2.fillText(menu.row1, menu.border + 4, menu.border + menu.FontHeight*2 + menu.rowHeight);
-    ctx2.fillText(menu.row2, menu.border + 4, menu.border + menu.FontHeight*3 + menu.rowHeight);
-    ctx2.fillText(menu.row3, menu.border + 4, menu.border + menu.FontHeight*4 + menu.rowHeight);
+    ctx2.fillText(menu.row1, menu.border + 4, menu.border + menu.FontHeight*2 + menu.rowHeight*2);
+    ctx2.fillText(menu.row2, menu.border + 4, menu.border + menu.FontHeight*3 + menu.rowHeight*3);
+    ctx2.fillText(menu.row3, menu.border + 4, menu.border + menu.FontHeight*4 + menu.rowHeight*4);
 	
 }
 
@@ -187,13 +188,13 @@ function example_1() {
 		wheels.splice(0, 360);
 	}
     for (let i = 0; i < 360; i++) {
-        let r = parseInt(10 + Math.random() * 1);
+        let r = parseInt(30 + Math.random() * 1);
         let x = parseInt(r + Math.random() * (canvas.width - 2 * r)); // et pall tekiks canvase alass on vaja ruudu laius maha lahutada
         let y = parseInt(r + Math.random() * (canvas.height - 2 * r));
         let MoveSpeed = 1.6; // + parseInt(Math.random() * 0);
         let direction = 360 * Math.random();
-        let Accel = 0.01; //Math.random() * 0.0 - 0.00;
-        let radiusChange = 0.1;//Math.random() * 2.3 - 2.9;
+        let Accel = Math.random() * 0.01;
+        let radiusChange = -0.1;//Math.random() * 2.3 - 2.9;
         if (wheels.length > 360) {
 			wheels.splice(0, 360);
             // wheel(300, 300, MoveSpeed, r, radiusChange, direction, 0);

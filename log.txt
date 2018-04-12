@@ -1,4 +1,9 @@
-﻿11.apr - õhtul - tekitasin menüü jaoks ridade kõrguste jaoks lisa lahendused
+﻿12.apr - hommikul koos Kadriga - 
+
+menüü joonistamisel avastasin, et rowHeight ei toimi kuna polnud kordajat juures, muutsin selle ära
+————————————————————————
+
+11.apr - õhtul - tekitasin menüü jaoks ridade kõrguste jaoks lisa lahendused
 
 Lisasin ketaste loomise funktsioonis arrayst pallide kustutamise vastaval hulgal kui palju palle loodi
 
