@@ -1,3 +1,9 @@
+﻿11.apr - õhtul - tekitasin menüü jaoks ridade kõrguste jaoks lisa lahendused
+
+Lisasin ketaste loomise funktsioonis arrayst pallide kustutamise vastaval hulgal kui palju palle loodi
+
+menu objektis ei saanud FontHeight'i numbrit fontSize'il rakendada, see võiks laheneda oles palju lihtsam rea kõrgust arvutada
+————————————————————————
 11.apr - hommikul 
 
 wheel classi sees uue objekti loomisel lähevad parameetrid lakke, vaja reset’ida neid kuidagi.

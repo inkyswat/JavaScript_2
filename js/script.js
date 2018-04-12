@@ -12,7 +12,14 @@ var menu = {
     border: 5,
     bg_color: "#a0e2de",
     text_color: "#010101",
-    fontSize: "19px serif"
+	FontHeight: 29,
+    fontSize: "29px serif",
+	header__text: "debug data:",
+	rowHeight: 15,
+	row1: "text 1:",
+	row2: "text 2:",
+	row3: "text 3:",
+	
 }
 // Converts from degrees to radians.
 Math.radians = function (degrees) {
@@ -82,7 +89,7 @@ class wheel {
             ctx.stroke();
 
         }
-        if (this.direction < 360) {
+        if (this.direction < 0) {
             ctx.fillStyle = "#" + BallCol;//"#0a0178";
             // ctx.fillStyle = "#" + (parseInt(this.direction) * 5).toString();//"#0a0178";
             ctx.fill();
@@ -94,7 +101,7 @@ class wheel {
 
 
 function ClearCanvas() {
-    // ctx.clearRect(0, 0, canvas.width, canvas.height);
+	    ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 
@@ -103,11 +110,11 @@ function DrawMenu() {
     ctx2.fillRect(menu.border, menu.border, canvas2.width - menu.border * 2, canvas2.height - menu.border * 2);
     ctx2.fillStyle = menu.text_color;
     ctx2.font = menu.fontSize;
-    ctx2.fillText("Pallide katsetused!", menu.border + 4, menu.border + 17);
-}
-
-function main_loop() {
-
+    ctx2.fillText(menu.header__text, menu.border + 4, menu.border + menu.FontHeight);
+    ctx2.fillText(menu.row1, menu.border + 4, menu.border + menu.FontHeight*2 + menu.rowHeight);
+    ctx2.fillText(menu.row2, menu.border + 4, menu.border + menu.FontHeight*3 + menu.rowHeight);
+    ctx2.fillText(menu.row3, menu.border + 4, menu.border + menu.FontHeight*4 + menu.rowHeight);
+	
 }
 
 
@@ -131,8 +138,6 @@ function RefreshCanvas(run) {
     
 }
 
-// RefreshCanvas(1,"Sisku!"); // refreshimine jääb seisma kui mujale tab'i peale minna
-
 
 function SendForm() {
     var FrmData = [];
@@ -144,7 +149,6 @@ function SendForm() {
         FrmData.push(text);
         
     }
-    console.log(FrmData[0]);
     document.getElementById("status_inf").innerHTML = FrmData[0];
     switch (parseInt(FrmData[0])) {
         case 1:
@@ -165,31 +169,33 @@ function SendForm() {
         
         
         default:
-            // document.getElementById("demo").innerHTML = "invalid choice!";
         break;
         
     }
-    // RefreshCanvas(parseInt(FrmData[0]), FrmData[1]);
-}
+ }
 
 
 // default running fns
 DrawMenu();
+    document.getElementById("wheels_array").innerHTML = ": " + wheels.length;
 
 
 // examples
 
 function example_1() {
-    for (let i = 0; i < 15; i++) {
+	if (wheels.length != 0) {
+		wheels.splice(0, 360);
+	}
+    for (let i = 0; i < 360; i++) {
         let r = parseInt(10 + Math.random() * 1);
         let x = parseInt(r + Math.random() * (canvas.width - 2 * r)); // et pall tekiks canvase alass on vaja ruudu laius maha lahutada
         let y = parseInt(r + Math.random() * (canvas.height - 2 * r));
-        let MoveSpeed = 0.1; // + parseInt(Math.random() * 0);
+        let MoveSpeed = 1.6; // + parseInt(Math.random() * 0);
         let direction = 360 * Math.random();
         let Accel = 0.01; //Math.random() * 0.0 - 0.00;
         let radiusChange = 0.1;//Math.random() * 2.3 - 2.9;
-        if (wheels.length > 75) {
-            wheels.splice(0, 75);
+        if (wheels.length > 360) {
+			wheels.splice(0, 360);
             // wheel(300, 300, MoveSpeed, r, radiusChange, direction, 0);
 //     constructor(posX, posY, MoveSpeed, radius, radiusChange, direction, Accel) {
 
