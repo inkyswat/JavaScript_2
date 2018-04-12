@@ -9,13 +9,13 @@ var running = 0;
 
 
 var menu = {
-    border: 9,
+    border: 2,
     bg_color: "#a0e2de",
     text_color: "#010101",
 	FontHeight: 19,
     fontSize: "19px serif",
 	header__text: "debug data:",
-	rowHeight: 50,
+	rowHeight: 4,
 	row1: "text 1:",
 	row2: "text 2:",
 	row3: "text 3:",
@@ -77,7 +77,7 @@ class wheel {
 
     }
     draw(posX, posY, radius) {
-        var BallCol = 10+(parseInt(this.direction) * 10).toString(); //direction.toString();
+        var BallCol = 0+(parseInt(this.direction) * 1).toString(); //direction.toString();
 
         ctx.beginPath();
         ctx.arc(posX, posY, radius, 0, 2 * Math.PI);
@@ -121,7 +121,7 @@ function DrawMenu() {
 
 // RefreshCanvas();
 function RefreshCanvas(run) {
-    if (run == 1 || run < 1.1 && run > 0.1) {
+    if (run == 1) {
         running = 1;
     }
     if (run == -1) {
@@ -187,16 +187,16 @@ function example_1() {
 	if (wheels.length != 0) {
 		wheels.splice(0, 360);
 	}
-    for (let i = 0; i < 360; i++) {
+    for (let i = 0; i < 180; i++) {
         let r = parseInt(30 + Math.random() * 1);
         let x = parseInt(r + Math.random() * (canvas.width - 2 * r)); // et pall tekiks canvase alass on vaja ruudu laius maha lahutada
         let y = parseInt(r + Math.random() * (canvas.height - 2 * r));
-        let MoveSpeed = 1.6; // + parseInt(Math.random() * 0);
+        let MoveSpeed = 6.6; // + parseInt(Math.random() * 0);
         let direction = 360 * Math.random();
         let Accel = Math.random() * 0.01;
         let radiusChange = -0.1;//Math.random() * 2.3 - 2.9;
         if (wheels.length > 360) {
-			wheels.splice(0, 360);
+	//		wheels.splice(0, 360);
             // wheel(300, 300, MoveSpeed, r, radiusChange, direction, 0);
 //     constructor(posX, posY, MoveSpeed, radius, radiusChange, direction, Accel) {
 
