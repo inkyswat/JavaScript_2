@@ -7,21 +7,23 @@ var wheels = [];
 var running = 0;
 
 
-
+// tee menüü klassiks, siis saad fontsize sisduda fontheieght'iga
 var menu = {
-    border: 2,
+    border: 10,
     bg_color: "#a0e2de",
     text_color: "#010101",
-	FontHeight: 19,
-    fontSize: "19px serif",
+	FontHeight: 25,
+    fontSize: "25px serif",
 	header__text: "debug data:",
-	rowHeight: 4,
+	rowHeight: 0,
 	row1: "text 1:",
 	row2: "text 2:",
 	row3: "text 3:",
 	
 }
+
 // Converts from degrees to radians.
+// on olemas ka Math.degToRad
 Math.radians = function (degrees) {
     return degrees * Math.PI / 180;
 };
@@ -184,26 +186,31 @@ DrawMenu();
 // examples
 
 function example_1() {
+	var wheelsAmount = 101;
 	if (wheels.length != 0) {
-		wheels.splice(0, 360);
+		wheels.splice(0, wheelsAmount);
+	console.log(wheels);
 	}
-    for (let i = 0; i < 180; i++) {
-        let r = parseInt(30 + Math.random() * 1);
-        let x = parseInt(r + Math.random() * (canvas.width - 2 * r)); // et pall tekiks canvase alass on vaja ruudu laius maha lahutada
-        let y = parseInt(r + Math.random() * (canvas.height - 2 * r));
-        let MoveSpeed = 6.6; // + parseInt(Math.random() * 0);
-        let direction = 360 * Math.random();
-        let Accel = Math.random() * 0.01;
-        let radiusChange = -0.1;//Math.random() * 2.3 - 2.9;
+    for (var i = 90; i < wheelsAmount; i++) {
+        var r = parseInt(40 + Math.random() * 1);
+        var x = parseInt(r + Math.random() * (canvas.width - 2 * r)); // et pall tekiks canvase alass on vaja ruudu laius maha lahutada
+        var y = parseInt(r + Math.random() * (canvas.height - 2 * r));
+        var MoveSpeed = 0.5; // + parseInt(Math.random() * 0);
+        var direction = i; //360 * Math.random();
+        var Accel = 0; //Math.random() * 0.01;
+        console.log(Accel);
+        
+        var radiusChange = 0; //Math.random() * 1.3 - 1.4;
         if (wheels.length > 360) {
-	//		wheels.splice(0, 360);
+			//wheels.splice(0, 360);
+        //    wheels = [];
             // wheel(300, 300, MoveSpeed, r, radiusChange, direction, 0);
 //     constructor(posX, posY, MoveSpeed, radius, radiusChange, direction, Accel) {
 
         }
         wheels.push(new wheel(300, 300, MoveSpeed, r, radiusChange, direction, Accel));
     }
-    document.getElementById("wheels_array").innerHTML = ": " + wheels.length;
+    document.getElementById("wheels_array").innerHTML = ": " + wheels.length + ", Accel:" + wheels[10].Accel;
 
 }
 
