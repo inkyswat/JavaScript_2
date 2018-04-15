@@ -162,6 +162,7 @@ function SendForm() {
 
         break;
         case 2:
+        example_2();
         RefreshCanvas(1);
         break;
         case 3:
@@ -188,21 +189,23 @@ DrawMenu();
 // examples
 
 function example_1() {
-	var wheelsAmount = 101;
+
+	var wheelsAmount = 50;
+	wheels.splice(0, wheelsAmount);
 //	if (wheels.length != 0) {
 //		wheels.splice(0, wheelsAmount);
 //	console.log(wheels);
 //	}
-    for (var i = 90; i < wheelsAmount; i++) {
-        var r = parseInt(40 + Math.random() * 1);
+    for (var i = 0; i < wheelsAmount; i++) {
+        var r = parseInt(100 + Math.random() * 1);
         var x = parseInt(r + Math.random() * (canvas.width - 2 * r)); // et pall tekiks canvase alass on vaja ruudu laius maha lahutada
         var y = parseInt(r + Math.random() * (canvas.height - 2 * r));
         var MoveSpeed = 0.5; // + parseInt(Math.random() * 0);
-        var direction = i; //360 * Math.random();
+        var direction = 360 * Math.random();
         var Accel = 0; //Math.random() * 0.01;
         console.log(Accel);
         
-        var radiusChange = 0; //Math.random() * 1.3 - 1.4;
+        var radiusChange = Math.random() * 1.3 - 1.4;
         if (wheels.length > 360) {
 			//wheels.splice(0, 360);
         //    wheels = [];
@@ -210,16 +213,52 @@ function example_1() {
 //     constructor(posX, posY, MoveSpeed, radius, radiusChange, direction, Accel) {
 
         }
-        wheels.push(new wheel(300, 300, MoveSpeed, r, radiusChange, direction, Accel));
+        wheels.push(new wheel(x, 300, MoveSpeed, r, radiusChange, direction, Accel));
 
     }
 		wheels_set[wheels_set_counter] = wheels;
 		wheels_set_counter ++;
-		wheels.splice(0, wheelsAmount);
 
     document.getElementById("wheels_array").innerHTML = "ringide hulk: " + wheels.length;
 
 }
+
+
+function example_2() {
+
+	var wheelsAmount = 10;
+	wheels.splice(0, wheelsAmount);
+//	if (wheels.length != 0) {
+//		wheels.splice(0, wheelsAmount);
+//	console.log(wheels);
+//	}
+    for (var i = 0; i < wheelsAmount; i++) {
+        var r = parseInt(200 + Math.random() * 1);
+        var x = parseInt(r + Math.random() * (canvas.width - 2 * r)); // et pall tekiks canvase alass on vaja ruudu laius maha lahutada
+        var y = parseInt(r + Math.random() * (canvas.height - 2 * r));
+        var MoveSpeed = 0; // + parseInt(Math.random() * 0);
+        var direction = 360 * Math.random();
+        var Accel = 0; //Math.random() * 0.01;
+        console.log(Accel);
+        
+        var radiusChange = Math.random() * 1.3 - 1.4;
+        if (wheels.length > 360) {
+			//wheels.splice(0, 360);
+        //    wheels = [];
+            // wheel(300, 300, MoveSpeed, r, radiusChange, direction, 0);
+//     constructor(posX, posY, MoveSpeed, radius, radiusChange, direction, Accel) {
+
+        }
+        wheels.push(new wheel(x, 300, MoveSpeed, r, radiusChange, direction, Accel));
+
+    }
+		wheels_set[wheels_set_counter] = wheels;
+		wheels_set_counter ++;
+
+    document.getElementById("wheels_array").innerHTML = "ringide hulk: " + wheels.length;
+
+}
+
 
 function stopRefresh() {
 
