@@ -4,6 +4,8 @@ var ctx = canvas.getContext('2d');
 var canvas2 = document.getElementById('menu');
 var ctx2 = canvas2.getContext('2d');
 var wheels = [];
+var wheels_set = [];
+var wheels_set_counter = 0;
 var running = 0;
 
 
@@ -187,10 +189,10 @@ DrawMenu();
 
 function example_1() {
 	var wheelsAmount = 101;
-	if (wheels.length != 0) {
-		wheels.splice(0, wheelsAmount);
-	console.log(wheels);
-	}
+//	if (wheels.length != 0) {
+//		wheels.splice(0, wheelsAmount);
+//	console.log(wheels);
+//	}
     for (var i = 90; i < wheelsAmount; i++) {
         var r = parseInt(40 + Math.random() * 1);
         var x = parseInt(r + Math.random() * (canvas.width - 2 * r)); // et pall tekiks canvase alass on vaja ruudu laius maha lahutada
@@ -209,8 +211,13 @@ function example_1() {
 
         }
         wheels.push(new wheel(300, 300, MoveSpeed, r, radiusChange, direction, Accel));
+
     }
-    document.getElementById("wheels_array").innerHTML = ": " + wheels.length + ", Accel:" + wheels[10].Accel;
+		wheels_set[wheels_set_counter] = wheels;
+		wheels_set_counter ++;
+		wheels.splice(0, wheelsAmount);
+
+    document.getElementById("wheels_array").innerHTML = "ringide hulk: " + wheels.length;
 
 }
 

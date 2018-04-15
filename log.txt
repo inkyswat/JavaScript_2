@@ -1,4 +1,11 @@
-﻿12.apr - lahenes canvase refhreshi inputi parameetri probleem. arvatavasti oli lahendus see, et peale kontrolli koheselt salvestan muudatuse globaalsesse muutujasse
+﻿15.apr - hommikul koos - 
+
+Kuna uute objetkide loomisel muutub joonistamise kiirus, siis et täpsemat ülevaadet saada mis toimub tegin lisa array kuhu sisse lähevad loodud objektide array set'id
+
+vaja muuta üamber osa, kus võtab objekte uuest arrayst, kuna wheels array läheb iga kord tühjaks peale uude array'sse ümber tõtstmist!
+
+————————————————————————
+12.apr - lahenes canvase refhreshi inputi parameetri probleem. arvatavasti oli lahendus see, et peale kontrolli koheselt salvestan muudatuse globaalsesse muutujasse
 
 
 12.apr - hommikul koos Kadriga - 
